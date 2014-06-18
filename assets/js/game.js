@@ -7,9 +7,9 @@ canvas.height = 400;
 var player = {
     x: 200,
     y: 200,
-    width: 30,
-    height: 30,
-    speed: 200,
+    width: 15,
+    height: 15,
+    speed: 150,
     color: '#c00'
 };
 
@@ -52,8 +52,7 @@ function randomImageArray(){
             arrayLength += 1;   
         }
     }
-   // return mapArray;
-  //  map = mapArray;
+    console.log("Random array generated..");
 } 
 
 
@@ -121,6 +120,19 @@ function drawBackground() {
             }
         }
     }
+    
+}
+
+/* Collision detection (NOT WORKING)
+TODO: Make image2 an object with its own width and height for each tile
+Replace object2 with the object from image2 (WALL);
+Stop the player from moving in its current direction if it collides with the wall
+*/
+function collision(){
+    if (player.x < object2.x + object2.width  && player.x + player.width  > object2.x &&
+            player.y < object2.y + object2.height && player.y + player.height > object2.y) {
+    // The objects are touching
+    }
 }
 
 // Render the player
@@ -139,6 +151,7 @@ function run() {
 function initialize(){
     randomImageArray();
     drawBackground();
+    console.log('Background drawed..');
 }
  
 var time = Date.now();
